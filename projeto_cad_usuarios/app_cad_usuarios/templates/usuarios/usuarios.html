@@ -1,0 +1,40 @@
+<!--Para utilizar o template base criado o comando abaixo será util.-->
+{% extends 'usuarios/base.html' %}
+<!--Aqui sera especificado onde será renderizado dentro do template base. Em qual bloco será renderizado.-->
+{% block conteudo %}
+<div class="container">
+    <h1>Usuários cadastrados</h1>
+    <table class="table table-bordered table-striped">
+        
+        <!-- Sintaxe para trazer id, nome e idade-->
+        <tr>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Idade</th>
+        </tr>
+        <!-- Como estamos acessando todos os itens de uma vez, não sera possivel retornar a busca-->
+        <!-- Sendo necessario fazer um laço de repetição no django -->
+        {% for usuario in usuarios %}
+        <tr>
+            <!-- todas as informações do banco de dados, teria que exibir todas as linhas que estao no banco de dados-->
+            <!-- uma forma tradicional seria fazer mais um tr e trazer a tabela tb e especifica as informaçoes que estao vindo do banco de dados-->
+            <!-- dicionarios na aba views com nome usuarios, vamos chamar ele atraves de um forma especifica no django-->
+            <!--abre fecha chaves e dentro dela abre e fecha outra chave para acessar o nome da informação que esta trazendo-->
+            <td>{{usuario.id_usuario}}</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.idade}}</td>
+        </tr>
+        <!-- Para aparecer a opção de exclusão do usurio-->
+        <td>
+            <form action="{% url 'delete_data' usuario.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger" name="delete">Excluir</button>
+            </form>
+        </td>
+            <!-- Encerra o laço de repetição do django-->
+            {% endfor %}
+    </table>
+</div>
+<!--Para fechar a estrtura usamos a sintaxe abaixo-->
+{% endblock %}
+

@@ -1,0 +1,29 @@
+<!--Para utilizar o template base criado o comando abaixo será util.-->
+{% extends 'usuarios/base.html' %}
+<!--Aqui sera especificado onde será renderizado dentro do template base. Em qual bloco será renderizado.-->
+{% block conteudo %}
+<form action="{% url 'listagem_usuarios'%}" method="post">
+  {% csrf_token %}
+  <div style="text-align: center;" class="conteiner">
+    <!-- Vamos criar um div com a class conteiner para centralização da pagina-->
+    <!-- Criamos um h1 com nome Cadastro de Usuários -->
+    <!-- Foi colocado dois inputs Nome e Idade, e um botão enviar-->
+    <!-- Foi centralizado a div atraves do style, form-control-sm para uma estilização melhor-->
+    <!--Para especificar os campos dos inputs, será colocado atributo name para identificar onde foi digitado-->
+    <h1>Cadastro de Usuários</h1>
+    Nome <input name="nome" class="form-control-sm" type="text">
+    Idade <input name="idade" class="form-control-sm" type="text">
+    <button class="form-control-sm">Enviar</button>
+  </div>
+</form>
+<!--Para fechar a estrtura usamos a sintaxe abaixo-->
+{% endblock %}
+
+<!-- seu template -->
+{% for objeto in objetos %}
+    <!-- exibir os dados -->
+    {{ objeto.nome }}, {{ objeto.idade }}, ...
+
+    <!-- link ou botão de exclusão -->
+    <a href="{% url 'delete_data' objeto.pk %}">Excluir</a>
+{% endfor %}
