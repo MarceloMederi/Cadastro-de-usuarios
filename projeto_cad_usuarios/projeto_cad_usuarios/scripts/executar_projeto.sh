@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Instalação das dependências do projeto (por exemplo, Django)
-pip install django
-
-# Execução do servidor Django
+#!/bin/bash
+echo "Iniciando o projeto..."
+python manage.py migrate
+echo "Migrações aplicadas."
 python manage.py runserver
+
