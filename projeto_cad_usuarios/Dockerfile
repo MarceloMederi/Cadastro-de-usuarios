@@ -7,9 +7,6 @@ WORKDIR /app
 # Copiar os arquivos de configuração e requisitos do projeto
 COPY . /app/
 
-# Atualizar o pip
-RUN pip install --upgrade pip
-
 # Instalar as dependências do projeto
 RUN pip install -r requirements.txt
 
