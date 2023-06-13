@@ -4,15 +4,8 @@
 echo "Instalando as dependências..."
 pip install -r requirements.txt
 
-# Comando para obter o projeto com o curl
-echo "Obtendo o projeto..."
-curl -sSL https://raw.githubusercontent.com/MarceloMederi/Cadastro-de-usuarios/master/projeto_cad_usuarios.tar.gz -o projeto_cad_usuarios.tar.gz
-
-# Descompactar o projeto
-echo "Descompactando o projeto..."
-tar -xf projeto_cad_usuarios.tar.gz
-
 # Acessar o diretório do projeto
+echo "Acessando o diretório do projeto..."
 cd projeto_cad_usuarios
 
 # Configurar o ambiente (se necessário)
