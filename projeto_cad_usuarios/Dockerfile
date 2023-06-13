@@ -7,8 +7,8 @@ WORKDIR /app
 # Copiar os arquivos de configuração e requisitos do projeto
 COPY . /app/
 
-# Instalar as dependências do projeto
-RUN pip install -r requirements.txt
+# Instala o django e o curl
+RUN pip install django
 
 # Expor a porta utilizada pelo Django (opcional, depende da configuração do seu projeto)
 EXPOSE 8080
